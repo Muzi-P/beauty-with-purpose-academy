@@ -43,7 +43,7 @@ Version: 1.0.0
     4.6. Blog
     4.7. Comments
     4.8. Hero Area
-    4.9. Error    
+    4.9. Error
     4.10. About
     4.11. Forms
     4.12. Price Plan
@@ -10086,6 +10086,8 @@ blockquote.vs-quote cite:before {
   transition: all ease 0.4s;
   transform: rotateY(0);
   filter: none;
+  width: 61px;
+  height: 61px;
 }
 .service-style5 .service-text {
   max-width: 215px;

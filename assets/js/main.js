@@ -14,7 +14,7 @@
     08. Ajax Contact Form
     09. Magnific Popup
     10. Filter
-    11. Popup Sidemenu   
+    11. Popup Sidemenu
     12. Search Box Popup
     13. Woocommerce Toggle
     14. Quantity Added
@@ -698,9 +698,9 @@
     var navDom = 'data-slide-go';
 
     vsHslide.on('sliderDidLoad', function (event, slider) { // On Slide Init
-      var currentSlide = slider.slides.current.index; // current Slide index 
+      var currentSlide = slider.slides.current.index; // current Slide index
       var i = 1;
-      // Set Attribute 
+      // Set Attribute
       vsHslide.find(customNav).each(function () {
         $(this).attr(navDom, i)
         i++
@@ -878,6 +878,6 @@
   new universalParallax().init();
 
 
-  
+
 
 })(jQuery);
