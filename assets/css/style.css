@@ -2218,6 +2218,20 @@ textarea.is-invalid {
   transform: scale(1.2);
 }
 
+@media screen and (max-width: 450px) {
+  .deal-offer {
+    content: url('/assets/img/bg/bg-cta-3-12.jpg');
+    height: 100%;
+  }
+}
+
+@media screen and (min-width: 451px) {
+  .deal-offer {
+    content: url('/assets/img/bg/bg-cta-3-1.jpg');
+    height: 446px;
+  }
+}
+
 @keyframes boxHover {
   to {
     left: -120%;
