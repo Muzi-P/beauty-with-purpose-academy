@@ -45,6 +45,7 @@ export const state = {
       href: "#",
       description:
         "Master the art of makeup application with industry insights and hands-on training.",
+      picUrl: "assets/img/blog/blog-4-6.jpg"
     },
     {
       title: "Advanced Nail Technician Certification",
@@ -53,6 +54,7 @@ export const state = {
       href: "#",
       description:
         "Elevate your nail artistry skills and gain certification in advanced nail techniques.",
+        picUrl: "assets/img/blog/blog-4-4.jpg"
     },
     {
       title: "Entrepreneurship in Beauty Business",
@@ -61,6 +63,7 @@ export const state = {
       href: "#",
       description:
         "Unlock the secrets to building and managing a successful beauty business venture.",
+        picUrl: "assets/img/blog/blog-4-9.jpg"
     },
     {
       title: "Holistic Wellness and Beauty Therapy",
@@ -69,6 +72,7 @@ export const state = {
       href: "#",
       description:
         "Explore the synergy of beauty and wellness, promoting holistic health and self-care.",
+        picUrl: "assets/img/blog/blog-4-10.jpg"
     },
     {
       title: "Hair Styling and Wig-Making Masterclass",
@@ -77,6 +81,7 @@ export const state = {
       href: "#",
       description:
         "Become proficient in hair styling and the art of crafting beautiful wigs.",
+        picUrl: "assets/img/blog/blog-4-3.jpg"
     },
     {
       title: "Fashion Photography and Makeup Collaboration",
@@ -85,6 +90,7 @@ export const state = {
       href: "#",
       description:
         "Blend photography skills with makeup artistry for stunning fashion collaborations.",
+        picUrl: "assets/img/blog/blog-4-11.jpg"
     },
     {
       title: "Skin Care Essentials Workshop",
@@ -93,6 +99,7 @@ export const state = {
       href: "#",
       description:
         "Learn the essentials of skincare and develop a personalized routine for radiant skin.",
+        picUrl: "assets/img/blog/blog-4-7.jpg"
     },
     {
       title: "Beauty Product Development Bootcamp",
@@ -101,6 +108,7 @@ export const state = {
       href: "#",
       description:
         "From concept to creation, delve into the process of developing your beauty products.",
+        picUrl: "assets/img/blog/blog-4-1.jpg"
     },
     {
       title: "Aromatherapy and Relaxation Techniques",
@@ -109,6 +117,7 @@ export const state = {
       href: "#",
       description:
         "Discover the art of aromatherapy and relaxation practices for beauty and well-being.",
+        picUrl: "assets/img/blog/blog-4-12.jpg"
     },
     {
       title: "Special Effects Makeup for Film and TV",
@@ -117,6 +126,7 @@ export const state = {
       href: "#",
       description:
         "Learn the techniques of special effects makeup for film and television productions.",
+        picUrl: "assets/img/blog/blog-4-8.jpg"
     },
   ],
 };

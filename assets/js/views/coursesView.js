@@ -10,14 +10,14 @@ class CourseView extends View {
   _generateMarkup() {
     return `${this._data.courses.map(this._generateMarkupCourse).join("")}`;
   }
-  _generateMarkupCourse({ title, description, tutor, href, date }) {
+  _generateMarkupCourse({ title, description, tutor, href, date, picUrl }) {
     return `
     <div class="col-xl-4">
     <div class="vs-blog blog-style4">
       <div class="blog-img">
         <a href="blog-details.html"
           ><img
-            src="assets/img/blog/blog-4-1.jpg"
+            src="${picUrl}"
             alt="Blog Thumbnail"
             class="w-100"
         /></a>
