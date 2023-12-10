@@ -69,12 +69,12 @@ class SideMenuView extends View {
       </div>
       <div class="media-body">
         <h4 class="post-title">
-          <a class="text-inherit" href="index.html#blog"
+          <a class="text-inherit" href="/#blog"
             >${title}</a
           >
         </h4>
         <div class="recent-post-meta">
-          <a href="index.html#blog"
+          <a href="/#blog"
             ><i class="fas fa-calendar-alt"></i>${date}</a
           >
         </div>

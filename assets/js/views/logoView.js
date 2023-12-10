@@ -12,7 +12,7 @@ class LogoView extends View {
   }
   _generateMarkupLogo() {
     return `
-    <a href="index.html" class="logo-container"
+    <a href="/" class="logo-container"
       ><img
         src="assets/img/logo.png"
         class="bwip-logo"

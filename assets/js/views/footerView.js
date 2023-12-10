@@ -67,7 +67,7 @@ class FooterView extends View {
                     <ul class="menu">
                       <li><a href="about.html">About Us</a></li>
                       <li><a href="courses.html">Courses</a></li>
-                      <li><a href="index.htmlindex.html#blog">Blog</a></li>
+                      <li><a href="//#blog">Blog</a></li>
                       <li><a href="contact.html">Contact</a></li>
                     </ul>
                   </div>
@@ -75,11 +75,11 @@ class FooterView extends View {
                 <div class="col-6">
                   <div class="menu-all-pages-container footer-menu">
                     <ul class="menu">
-                      <li><a href="index.html#service">Makeup Mastery</a></li>
-                      <li><a href="index.html#service">Certification</a></li>
-                      <li><a href="index.html#service">Hair Hub</a></li>
-                      <li><a href="index.html#service">Mindset Magic</a></li>
-                      <li><a href="index.html#service">Nail Tech Pro</a></li>
+                      <li><a href="/#service">Makeup Mastery</a></li>
+                      <li><a href="/#service">Certification</a></li>
+                      <li><a href="/#service">Hair Hub</a></li>
+                      <li><a href="/#service">Mindset Magic</a></li>
+                      <li><a href="/#service">Nail Tech Pro</a></li>
                     </ul>
                   </div>
                 </div>
@@ -105,7 +105,7 @@ class FooterView extends View {
                       >
                     </h4>
                     <div class="recent-post-meta">
-                      <a href="index.html#blog"
+                      <a href="/#blog"
                         ><i class="fas fa-calendar-alt"></i>05 AUG, 2023</a
                       >
                     </div>
@@ -127,7 +127,7 @@ class FooterView extends View {
                       >
                     </h4>
                     <div class="recent-post-meta">
-                      <a href="index.html#blog"
+                      <a href="/#blog"
                         ><i class="fas fa-calendar-alt"></i>11 AUG, 2023</a
                       >
                     </div>
@@ -145,7 +145,7 @@ class FooterView extends View {
           <div class="col-md-auto text-center">
             <p class="copyright-text">
               Copyright <i class="fal fa-copyright"></i> 2023
-              <a href="index.html">Bewip</a>. All Rights Reserved By
+              <a href="/">Bewip</a>. All Rights Reserved By
               <a href="https://inventive.netlify.app/">Inventive</a>
             </p>
           </div>
