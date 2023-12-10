@@ -129,4 +129,26 @@ export const state = {
         picUrl: "assets/img/blog/blog-4-8.jpg"
     },
   ],
+  latestPosts: [
+    {
+      imgSrc: "assets/img/blog/blog-4-1.jpg",
+      title: "Bewip Empowers Graduates: Changing Lives",
+      date: "march 10, 2023"
+    },
+    {
+      imgSrc: "assets/img/blog/blog-4-12.jpg",
+      title: "New Beauty Trends Unveiled at Bewip",
+      date: "Augest 10, 2023"
+    },
+    {
+      imgSrc: "assets/img/blog/blog-4-3.jpg",
+      title: "Bewip Empowers Graduates: Changing Lives",
+      date: "July 11, 2023"
+    },
+    {
+      imgSrc: "assets/img/blog/blog-4-4.jpg",
+      title: "Bewip's Social Impact Recognized Globally",
+      date: "March 05, 2023"
+    }
+  ],
 };
