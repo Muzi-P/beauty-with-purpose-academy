@@ -1,6 +1,6 @@
 import View from "./View.js";
 class RecipeView extends View {
-  _parentElement = document.querySelector(".service5-slider");
+  _parentElement = document.querySelectorAll(".service5-slider");
 
 
   addHandlerRender(handler) {

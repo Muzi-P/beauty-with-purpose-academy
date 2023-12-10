@@ -1,6 +1,6 @@
 import View from "./View.js";
 class SideMenuView extends View {
-  _parentElement = document.querySelector(".sidemenu-content");
+  _parentElement = document.querySelectorAll(".sidemenu-content");
 
   addHandlerRender(handler) {
     ["hashchange", "load"].forEach((ev) =>

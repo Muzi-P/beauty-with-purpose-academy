@@ -1,6 +1,6 @@
 import View from "./View.js";
 class LogoView extends View {
-  _parentElement = document.querySelector(".header-logo");
+  _parentElement = document.querySelectorAll(".header-logo");
 
   addHandlerRender(handler) {
     ["hashchange", "load"].forEach((ev) =>
@@ -14,7 +14,7 @@ class LogoView extends View {
     return `
     <a href="/" class="logo-container"
       ><img
-        src="assets/img/logo.png"
+        src="assets/img/logo_transparent.png"
         class="bwip-logo"
         alt="logo"
       />

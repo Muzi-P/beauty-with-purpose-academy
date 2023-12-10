@@ -2,14 +2,17 @@ export default class View {
   _data;
 
   render(data, render = true, clearFirst = false) {
+    console.log(this._parentElement);
     this._data = data;
     const markup = this._generateMarkup();
 
-    if (!render || !this._parentElement) return markup;
+    if (!render || !this._parentElement || Array.from(this._parentElement).length < 1) return markup;
 
     if (clearFirst) this._clear();
 
-    this._parentElement.insertAdjacentHTML("beforeend", markup);
+    Array.from(this._parentElement).forEach(element => {
+      element.insertAdjacentHTML("beforeend", markup);
+    });
   }
 
   _clear() {

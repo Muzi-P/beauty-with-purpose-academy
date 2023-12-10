@@ -1,6 +1,6 @@
 import View from "./View.js";
 class FooterView extends View {
-  _parentElement = document.querySelector(".footer-wrapper");
+  _parentElement = document.querySelectorAll(".footer-wrapper");
 
   addHandlerRender(handler) {
     ["hashchange", "load"].forEach((ev) =>

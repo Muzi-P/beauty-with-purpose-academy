@@ -1,6 +1,6 @@
 import View from "./View.js";
 class CourseView extends View {
-  _parentElement = document.querySelector(".courses");
+  _parentElement = document.querySelectorAll(".courses");
 
   addHandlerRender(handler) {
     ["hashchange", "load"].forEach((ev) =>
