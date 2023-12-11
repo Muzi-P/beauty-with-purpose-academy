@@ -368,10 +368,14 @@
 
   const enrollForm = document.getElementById("bwip-enroll-now");
 
-  if (enrollForm.attachEvent) {
-    enrollForm.attachEvent("submit", (e) => processForm(e, "enroll", "bwip-enroll-now"));
-  } else {
+  if (enrollForm) {
     enrollForm.addEventListener("submit", (e) => processForm(e, "enroll", "bwip-enroll-now"));
+  }
+
+  const contactForm = document.getElementById("bwip-contact");
+
+  if ( contactForm ) {
+    contactForm.addEventListener("submit", (e) => processForm(e, "contact", "bwip-contact"));
   }
 
   function encode(data) {
@@ -396,7 +400,6 @@
       !name || !surname || !phone || !email || !serviceType || !message;
 
     if (formInvalid) return;
-    console.log("form valid");
 
     fetch("/", {
       method: "post",
