@@ -3,7 +3,7 @@ class LogoView extends View {
   _parentElement = document.querySelectorAll(".header-logo");
 
   addHandlerRender(handler) {
-    ["hashchange", "load"].forEach((ev) =>
+    ["load"].forEach((ev) =>
       window.addEventListener(ev, handler)
     );
   }

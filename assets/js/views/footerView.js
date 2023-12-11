@@ -3,7 +3,7 @@ class FooterView extends View {
   _parentElement = document.querySelectorAll(".footer-wrapper");
 
   addHandlerRender(handler) {
-    ["hashchange", "load"].forEach((ev) =>
+    ["load"].forEach((ev) =>
       window.addEventListener(ev, handler)
     );
   }
