@@ -4,6 +4,10 @@ import coursesView from './views/coursesView.js';
 import logoView from './views/logoView.js';
 import sideMenuView from './views/sideMenuView.js';
 import footerView from './views/footerView.js';
+import FormOptionsView from './views/formOptionsView.js';
+
+const enrollFormOptionsView = new FormOptionsView(".courses-select");
+const contactFormOptionsView = new FormOptionsView(".contact-topics-select");
 
 const controlServices = () => {
     // 1) Rendering services
@@ -27,8 +31,18 @@ const controlSideMenu = () => {
 
 
 const controlFooter = () => {
-    // 1) Rendering a view
+    // 1) Rendering a footer view
     footerView.render(model.state);
+}
+
+const controlEnrollFormOptions = () => {
+    // 1) Rendering entroll form options
+    enrollFormOptionsView.render(model.state.courses);
+}
+
+const controlContactFormOptions = () => {
+    // 1) Rendering contact form options
+    contactFormOptionsView.render(model.state.contactTopics);
 }
 
 
@@ -39,5 +53,7 @@ const init = () => {
     logoView.addHandlerRender(controlLogo);
     sideMenuView.addHandlerRender(controlSideMenu);
     footerView.addHandlerRender(controlFooter);
+    enrollFormOptionsView.addHandlerRender(controlEnrollFormOptions);
+    contactFormOptionsView.addHandlerRender(controlContactFormOptions);
 };
 init();

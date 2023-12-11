@@ -342,7 +342,6 @@
     });
   });
 
-
   // Function For Custom Arrow Btn
   $.fn.slickGoNext = function () {
     $(this).each(function () {
@@ -365,89 +364,69 @@
   $("[data-slick-next]").slickGoNext();
   $("[data-slick-prev]").slickGoPrev();
 
-
   /*----------- 08. Ajax Contact Form ----------*/
-  var form = ".ajax-contact";
-  var invalidCls = "is-invalid";
-  var $email = '[name="email"]';
-  var $validation =
-    '[name="name"],[name="email"],[name="subject"],[name="message"]'; // Must be use (,) without any space
-  var formMessages = $(form).find(".form-messages");
 
-  function sendContact() {
-    var formData = $(form).serialize();
-    var valid;
-    valid = validateContact();
-    if (valid) {
-      jQuery
-        .ajax({
-          url: $(form).attr("action"),
-          data: formData,
-          type: "POST",
-        })
-        .done(function (response) {
-          // Make sure that the formMessages div has the 'success' class.
-          formMessages.removeClass("error");
-          formMessages.addClass("success");
-          // Set the message text.
-          formMessages.text(response);
-          // Clear the form.
-          $(form + ' input:not([type="submit"]),' + form + " textarea").val("");
-        })
-        .fail(function (data) {
-          // Make sure that the formMessages div has the 'error' class.
-          formMessages.removeClass("success");
-          formMessages.addClass("error");
-          // Set the message text.
-          if (data.responseText !== "") {
-            formMessages.html(data.responseText);
-          } else {
-            formMessages.html(
-              "Oops! An error occured and your message could not be sent."
-            );
-          }
-        });
-    }
+  const enrollForm = document.getElementById("bwip-enroll-now");
+
+  if (enrollForm.attachEvent) {
+    enrollForm.attachEvent("submit", (e) => processForm(e, "enroll", "bwip-enroll-now"));
+  } else {
+    enrollForm.addEventListener("submit", (e) => processForm(e, "enroll", "bwip-enroll-now"));
   }
 
-  function validateContact() {
-    var valid = true;
-    var formInput;
-
-    function unvalid($validation) {
-      $validation = $validation.split(",");
-      for (var i = 0; i < $validation.length; i++) {
-        formInput = form + " " + $validation[i];
-        if (!$(formInput).val()) {
-          $(formInput).addClass(invalidCls);
-          valid = false;
-        } else {
-          $(formInput).removeClass(invalidCls);
-          valid = true;
-        }
-      }
-    }
-    unvalid($validation);
-
-    if (
-      !$($email).val() ||
-      !$($email)
-        .val()
-        .match(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/)
-    ) {
-      $($email).addClass(invalidCls);
-      valid = false;
-    } else {
-      $($email).removeClass(invalidCls);
-      valid = true;
-    }
-    return valid;
+  function encode(data) {
+    return Object.keys(data)
+      .map(
+        (key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
+      )
+      .join("&");
   }
 
-  $(form).on("submit", function (element) {
-    element.preventDefault();
-    sendContact();
-  });
+  function processForm(e, formName, netlifyFormName) {
+    if (e.preventDefault) e.preventDefault();
+
+    let name = document.getElementById(`${formName}-name`).value;
+    let surname = document.getElementById(`${formName}-surname`).value;
+    let phone = document.getElementById(`${formName}-phone`).value;
+    let email = document.getElementById(`${formName}-email`).value;
+    let serviceType = document.getElementById(`${formName}-service-type`).value;
+    let message = document.getElementById(`${formName}-message`).value;
+
+    let formInvalid =
+      !name || !surname || !phone || !email || !serviceType || !message;
+
+    if (formInvalid) return;
+    console.log("form valid");
+
+    fetch("/", {
+      method: "post",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({
+        "form-name": netlifyFormName,
+        name: `${name} ${surname}`,
+        phone,
+        email,
+        message: `${serviceType}: ${message}`,
+        subject: `Customer Contact - ${email}- ${phone}`,
+      }),
+    }).then(() => {
+      Swal.fire({
+        title: "Message sent",
+        text: "Our team will be in touch!!",
+        icon: "success",
+        confirmButtonColor: "rgb(154, 86, 58)",
+      }).then((result) => {
+        document.getElementById(`${formName}-name`).value = ""
+        document.getElementById(`${formName}-surname`).value = ""
+        document.getElementById(`${formName}-phone`).value = ""
+        document.getElementById(`${formName}-email`).value = ""
+        document.getElementById(`${formName}-service-type`).value = ""
+        document.getElementById(`${formName}-message`).value = ""
+      });
+    });
+
+    return false;
+  }
 
   /*----------- 09. Magnific Popup ----------*/
   /* magnificPopup img view */
@@ -681,8 +660,6 @@
   });
   wow.init();
 
-
-
   /*----------- 18. Hero Slider Active ----------*/
   $(".vs-hero-carousel").each(function () {
     var vsHslide = $(this);
@@ -692,43 +669,46 @@
       return vsHslide.data(data);
     }
 
-
     /* Custom Thumb Navigation */
-    var customNav = '.thumb';
-    var navDom = 'data-slide-go';
+    var customNav = ".thumb";
+    var navDom = "data-slide-go";
 
-    vsHslide.on('sliderDidLoad', function (event, slider) { // On Slide Init
-      var currentSlide = slider.slides.current.index; // current Slide index
-      var i = 1;
-      // Set Attribute
-      vsHslide.find(customNav).each(function () {
-        $(this).attr(navDom, i)
-        i++
-        // On Click Thumb, Change slide
-        $(this).on('click', function (e) {
-          e.preventDefault();
-          var target = $(this).attr(navDom);
-          vsHslide.layerSlider(parseInt(target));
-        })
+    vsHslide
+      .on("sliderDidLoad", function (event, slider) {
+        // On Slide Init
+        var currentSlide = slider.slides.current.index; // current Slide index
+        var i = 1;
+        // Set Attribute
+        vsHslide.find(customNav).each(function () {
+          $(this).attr(navDom, i);
+          i++;
+          // On Click Thumb, Change slide
+          $(this).on("click", function (e) {
+            e.preventDefault();
+            var target = $(this).attr(navDom);
+            vsHslide.layerSlider(parseInt(target));
+          });
+        });
+        // Add class To current Thumb
+        var currentNav = customNav + "[" + navDom + '="' + currentSlide + '"';
+        $(currentNav).addClass("active");
+      })
+      .on("slideChangeDidComplete", function (event, slider) {
+        // On slide Change Start
+        var currentActive = slider.slides.current.index; // After change Current Index
+        var currentNav = customNav + "[" + navDom + '="' + currentActive + '"';
+        $(currentNav).addClass("active"); // Add Class on current Nav
+        $(currentNav).siblings().removeClass("active");
       });
-      // Add class To current Thumb
-      var currentNav = customNav + '[' + navDom + '="' + currentSlide + '"';
-      $(currentNav).addClass('active');
-    }).on('slideChangeDidComplete', function (event, slider) { // On slide Change Start
-      var currentActive = slider.slides.current.index; // After change Current Index
-      var currentNav = customNav + '[' + navDom + '="' + currentActive + '"';
-      $(currentNav).addClass('active') // Add Class on current Nav
-      $(currentNav).siblings().removeClass('active');
-    });
 
     /* Custom Responsive Option */
-    vsHslide.on('sliderWillLoad', function (event, slider) {
+    vsHslide.on("sliderWillLoad", function (event, slider) {
       // Define Variable
-      var respLayer = jQuery(this).find('.ls-responsive'),
-        lsDesktop = 'ls-desktop',
-        lsLaptop = 'ls-laptop',
-        lsTablet = 'ls-tablet',
-        lsMobile = 'ls-mobile',
+      var respLayer = jQuery(this).find(".ls-responsive"),
+        lsDesktop = "ls-desktop",
+        lsLaptop = "ls-laptop",
+        lsTablet = "ls-tablet",
+        lsMobile = "ls-mobile",
         windowWid = jQuery(window).width(),
         lgDevice = 1025,
         mdDevice = 992,
@@ -739,15 +719,22 @@
         var layer = jQuery(this);
 
         function lsd(data) {
-          return (layer.data(data) === '') ? layer.data(null) : layer.data(data);
+          return layer.data(data) === "" ? layer.data(null) : layer.data(data);
         }
         // var respStyle = (windowWid < smDevice) ? ((lsd(lsMobile)) ? lsd(lsMobile) : lsd(lsTablet)) : ((windowWid < mdDevice) ? ((lsd(lsTablet)) ? lsd(lsTablet) : lsd(lsDesktop)) : lsd(lsDesktop)),
-        var respStyle = (windowWid < smDevice) ? lsd(lsMobile) : ((windowWid < mdDevice ? lsd(lsTablet) : ((windowWid < lgDevice) ? lsd(lsLaptop) : lsd(lsDesktop)))),
-          mainStyle = (layer.attr('style') !== undefined) ? layer.attr('style') : ' ';
+        var respStyle =
+            windowWid < smDevice
+              ? lsd(lsMobile)
+              : windowWid < mdDevice
+              ? lsd(lsTablet)
+              : windowWid < lgDevice
+              ? lsd(lsLaptop)
+              : lsd(lsDesktop),
+          mainStyle =
+            layer.attr("style") !== undefined ? layer.attr("style") : " ";
 
-        layer.attr('style', mainStyle + respStyle);
+        layer.attr("style", mainStyle + respStyle);
       });
-
     });
 
     vsHslide.layerSlider({
@@ -773,17 +760,15 @@
     });
   });
 
-
-
-
-
   /*----------- 19. Testimonial Slider ----------*/
-  $('#testis_4_1').slick({
+  $("#testis_4_1").slick({
     dots: false,
     infinite: true,
     arrows: true,
-    prevArrow: '<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
-    nextArrow: '<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>',
+    prevArrow:
+      '<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
+    nextArrow:
+      '<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>',
     autoplay: true,
     autoplaySpeed: 6000,
     fade: false,
@@ -791,18 +776,18 @@
     slidesToShow: 1,
     slidesToScroll: 1,
     fade: true,
-    asNavFor: '#testis_4_2, #testis_4_3',
+    asNavFor: "#testis_4_2, #testis_4_3",
     responsive: [
       {
         breakpoint: 1500,
         settings: {
-          arrows: false
-        }
-      }
-    ]
+          arrows: false,
+        },
+      },
+    ],
   });
 
-  $('#testis_4_2').slick({
+  $("#testis_4_2").slick({
     dots: false,
     infinite: true,
     arrows: false,
@@ -813,12 +798,12 @@
     slidesToShow: 3,
     slidesToScroll: 1,
     centerMode: true,
-    centerPadding: '0',
+    centerPadding: "0",
     focusOnSelect: true,
-    asNavFor: '#testis_4_1, #testis_4_3'
+    asNavFor: "#testis_4_1, #testis_4_3",
   });
 
-  $('#testis_4_3').slick({
+  $("#testis_4_3").slick({
     dots: false,
     infinite: true,
     arrows: false,
@@ -829,41 +814,35 @@
     slidesToShow: 1,
     slidesToScroll: 1,
     fade: true,
-    asNavFor: '#testis_4_2, #testis_4_1'
+    asNavFor: "#testis_4_2, #testis_4_1",
   });
-
-
-
-
 
   /*---------- 20. Date & Time Picker ----------*/
   // Time And Date Picker
-  $('.dateTime-pick').datetimepicker({
+  $(".dateTime-pick").datetimepicker({
     timepicker: true,
     datepicker: true,
-    format: 'y-m-d H:i',
+    format: "y-m-d H:i",
     hours12: false,
-    step: 30
+    step: 30,
   });
 
   // Only Date Picker
-  $('.date-pick').datetimepicker({
+  $(".date-pick").datetimepicker({
     timepicker: false,
     datepicker: true,
-    format: 'm-d-y',
-    step: 10
+    format: "m-d-y",
+    step: 10,
   });
 
   // Only Time Picker
-  $('.time-pick').datetimepicker({
+  $(".time-pick").datetimepicker({
     datepicker: false,
     timepicker: true,
-    format: 'H:i',
+    format: "H:i",
     hours12: false,
-    step: 10
+    step: 10,
   });
-
-
 
   /*----------- 21. Accordion Class Toggler ----------*/
   $(".accordion-button").on("click", function () {
@@ -871,13 +850,6 @@
     btn.toggleClass("active").siblings().removeClass("active");
   });
 
-
-
-
   /*---------- 22. Parallax Effect ----------*/
   new universalParallax().init();
-
-
-
-
 })(jQuery);

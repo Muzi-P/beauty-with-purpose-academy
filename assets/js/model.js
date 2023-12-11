@@ -151,4 +151,13 @@ export const state = {
       date: "March 05, 2023"
     }
   ],
+  contactTopics: [
+    { title: "Social Investment and Benefit"},
+    { title: "Commercial Viability"},
+    { title: "Business and Entrepreneurship"},
+    { title: "Psychosocial Support"},
+    { title: "Youth Unemployment"},
+    { title: "Gender Inequality"},
+    { title: "Other"}
+  ],
 };

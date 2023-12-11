@@ -2142,59 +2142,37 @@
       <div class="container">
         <div class="row gx-0">
           <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.2s">
-            <form action="#" class="form-style11">
-              <span class="sec-subtitle">Enroll Now</span>
+            <form action="#" class="form-style11" id="bwip-enroll-now">
+              <span class="sec-subtitle">Enquire About Courses</span>
               <h2 class="sec-title">Revamp Your Future</h2>
               <div class="row">
                 <div class="form-group col-md-6">
-                  <input type="text" placeholder="First Name" />
+                  <input type="text" placeholder="First Name" required id="enroll-name"/>
                 </div>
                 <div class="form-group col-md-6">
-                  <input type="text" placeholder="Last Name" />
+                  <input type="text" placeholder="Last Name" required id="enroll-surname" />
                 </div>
                 <div class="form-group col-md-6">
-                  <input type="email" placeholder="Email Address" />
+                  <input type="email" placeholder="Email Address" required id="enroll-email" />
                 </div>
                 <div class="form-group col-md-6">
-                  <input type="number" placeholder="Phone Number" />
+                  <input type="number" placeholder="Phone Number" required min="8" id="enroll-phone" />
                 </div>
                 <div class="form-group col-12">
-                  <select>
-                    <option value="" selected disabled hidden>Subject*</option>
-                    <option value="Social Investment and Benefit">
-                      Social Investment and Benefit
-                    </option>
-                    <option value="Commercial Viability">
-                      Commercial Viability
-                    </option>
-                    <option value="Business and Entrepreneurship">
-                      Business and Entrepreneurship
-                    </option>
-                    <option value="Psychosocial Support">
-                      Psychosocial Support
-                    </option>
-                    <option value="Youth Unemployment">
-                      Youth Unemployment
-                    </option>
-                    <option value="Gender Inequality">Gender Inequality</option>
+                  <select required class="courses-select" id="enroll-service-type">
                   </select>
                 </div>
-                <div class="form-group col-12">
-                  <input
-                    type="number"
-                    placeholder="Select Date"
-                    class="date-pick"
-                  />
-                </div>
-                <div class="form-group col-12">
-                  <input
-                    type="number"
-                    placeholder="Select Time"
-                    class="time-pick"
-                  />
+                <div class="form-group">
+                  <textarea
+                    name="message"
+                    rows="2"
+                    id="enroll-message"
+                    placeholder="Message*"
+                    required
+                  ></textarea>
                 </div>
                 <div class="from-btn">
-                  <button class="vs-btn style7">Enroll Now</button>
+                  <button class="vs-btn style7">SEND MESSAGE</button>
                 </div>
               </div>
             </form>
@@ -2205,11 +2183,10 @@
                 <img src="assets/img/bg/schedule-img-1-1.jpg" alt="banner" />
               </div>
               <div class="schedule-content">
-                <span class="schedule-label">Time Schedule</span>
-                <h2 class="schedule-title">Opening Hours</h2>
-                <p class="schedule-time">Mon-Fri: 9 AM - 6 PM</p>
-                <p class="schedule-time">Saturday: 10 AM - 3 PM</p>
-                <p class="schedule-time">Sunday: Closed</p>
+                <span class="schedule-label">Trusted by over 15,000 students</span>
+                <h2 class="schedule-title">Flash Sale!!</h2>
+                <p class="schedule-time">Courses as low as R70</p>
+                <p class="schedule-time">Grab your favorite.</p>
               </div>
             </div>
           </div>
@@ -2837,6 +2814,28 @@
       ><i class="far fa-arrow-up"></i
     ></a>
 
+    <!--==============================
+    Netlify Form
+    ==============================-->
+      <form name="bwip-enroll-now" method="POST" data-netlify="true" netlify-honeybot="bot-field" hidden>
+        <input type="hidden" name="bot-field" value="contact">
+        <p>
+            <label>Your Name: <input type="text" name="name" /></label>
+        </p>
+        <p>
+            <label>Your Email: <input type="email" name="email" /></label>
+        </p>
+        <p>
+            <label>Message: <textarea name="message"></textarea></label>
+        </p>
+        <p>
+            <label>Subject: <textarea name="subject"></textarea></label>
+        </p>
+        <p>
+            <button type="submit">Send</button>
+        </p>
+    </form>
+
     <!--********************************
 			Code End  Here
 	******************************** -->
@@ -2870,6 +2869,7 @@
     <!-- Isotope Filter -->
     <script src="assets/js/imagesloaded.pkgd.min.js"></script>
     <script src="assets/js/isotope.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Main Js File -->
     <script src="assets/js/main.js"></script>
   </body>

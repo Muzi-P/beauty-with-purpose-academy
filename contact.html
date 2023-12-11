@@ -71,11 +71,11 @@
     <!--********************************
    		Code Start From Here
 	******************************** -->
-  <div class="preloader">
-    <div class="preloader-inner">
-      <div class="loader"></div>
+    <div class="preloader">
+      <div class="preloader-inner">
+        <div class="loader"></div>
+      </div>
     </div>
-  </div>
     <svg viewBox="0 0 150 150" class="svg-hidden">
       <path id="textPath" d="M 0,75 a 75,75 0 1,1 0,1 z"></path>
     </svg>
@@ -184,8 +184,7 @@
           <div class="container">
             <div class="row justify-content-between align-items-center gx-60">
               <div class="col-auto">
-                <div class="header-logo">
-                </div>
+                <div class="header-logo"></div>
               </div>
               <div class="col-auto">
                 <nav class="main-menu menu-style1 d-none d-lg-block">
@@ -275,9 +274,7 @@
                 Get in <span class="text-theme">Touch</span>
               </h2>
               <div class="col-xxl-10 pb-xl-3">
-                <p class="pe-xxl-4">
-                  Revamp Your Future
-                </p>
+                <p class="pe-xxl-4">Revamp Your Future</p>
               </div>
             </div>
             <form
@@ -285,47 +282,38 @@
               method="POST"
               class="ajax-contact form-style6"
             >
-              <div class="form-group">
-                <input
-                  type="text"
-                  name="name"
-                  id="name"
-                  placeholder="Your Name*"
-                />
-              </div>
-              <div class="form-group">
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  placeholder="Your Email*"
-                />
-              </div>
-              <div class="form-group">
-                <select name="subject" id="subject">
-                  <option value="" selected disabled hidden>Subject*</option>
-                  <option value="Social Investment and Benefit">
-                    Social Investment and Benefit
-                  </option>
-                  <option value="Commercial Viability">
-                    Commercial Viability
-                  </option>
-                  <option value="Business and Entrepreneurship">
-                    Business and Entrepreneurship
-                  </option>
-                  <option value="Psychosocial Support">
-                    Psychosocial Support
-                  </option>
-                  <option value="Youth Unemployment">Youth Unemployment</option>
-                  <option value="Gender Inequality">Gender Inequality</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <textarea
-                  name="message"
-                  id="message"
-                  placeholder="Message*"
-                ></textarea>
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <input type="text" placeholder="First Name" required />
+                </div>
+                <div class="form-group col-md-6">
+                  <input type="text" placeholder="Last Name" required />
+                </div>
+                <div class="form-group col-md-6">
+                  <input type="email" placeholder="Email Address" required />
+                </div>
+                <div class="form-group col-md-6">
+                  <input
+                    type="number"
+                    placeholder="Phone Number"
+                    required
+                    min="8"
+                  />
+                </div>
+                <div class="form-group">
+                  <select
+                    name="subject"
+                    id="subject"
+                    class="contact-topics-select"
+                  ></select>
+                </div>
+                <div class="form-group">
+                  <textarea
+                    name="message"
+                    id="message"
+                    placeholder="Message*"
+                  ></textarea>
+                </div>
               </div>
               <button class="vs-btn" type="submit">Send Message</button>
               <p class="form-messages"></p>
@@ -375,7 +363,7 @@
     <!--==============================
 			Footer Area
 	==============================-->
-  <footer class="footer-wrapper footer-layout4"></footer>
+    <footer class="footer-wrapper footer-layout4"></footer>
     <!-- Scroll To Top -->
     <a href="#" class="scrollToTop scroll-btn"
       ><i class="far fa-arrow-up"></i
