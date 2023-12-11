@@ -3682,6 +3682,10 @@ a.text-theme:hover,
   margin: 0;
 }
 
+.footer-email {
+  word-break: break-all;
+}
+
 /* Medium Large devices */
 @media (max-width: 1399px) {
   .footer-widget {

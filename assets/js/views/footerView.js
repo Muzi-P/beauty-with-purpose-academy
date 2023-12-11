@@ -50,7 +50,7 @@ class FooterView extends View {
                 >
                 <br />
                 <a
-                  class="text-inherit"
+                  class="footer-email text-inherit"
                   href="mailto:customerservices@beautywithpurposeacademy.org"
                   ><i class="fal fa-envelope text-theme me-2"></i
                   >customerservices@beautywithpurposeacademy.org</a
