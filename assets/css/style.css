@@ -3480,6 +3480,7 @@ a.text-theme:hover,
 .info-media1 .media-label {
   font-size: 18px;
   font-family: var(--title-font);
+  word-wrap: anywhere;
 }
 
 .follow-box {

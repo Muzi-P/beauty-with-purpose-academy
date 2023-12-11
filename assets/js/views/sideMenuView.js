@@ -40,8 +40,8 @@ class SideMenuView extends View {
           <div class="info-media1">
             <div class="media-icon"><i class="fal fa-envelope"></i></div>
             <span class="media-label"
-              ><a class="text-inherit" href="mailto:customerservice@bewip.org"
-                >customerservice@bewip.org</a
+              ><a class="text-inherit" href="mailto:customerservices@beautywithpurposeacademy.org"
+                >customerservices@beautywithpurposeacademy.org</a
               ></span
             >
           </div>
