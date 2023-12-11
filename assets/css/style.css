@@ -2241,6 +2241,7 @@ textarea.is-invalid {
 .mega-hover {
   position: relative;
   overflow: hidden;
+  height: 100%;
 }
 .mega-hover img {
   transition: all 2s ease;
