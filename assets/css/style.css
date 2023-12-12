@@ -5421,6 +5421,7 @@ blockquote.vs-quote cite:before {
   z-index: 2;
   background-color: var(--white-color);
   transition: all ease 0.4s;
+  height: 320px;
 }
 .blog-style4 .blog-content:after, .blog-style4 .blog-content:before {
   content: "";
@@ -10152,6 +10153,7 @@ blockquote.vs-quote cite:before {
   position: relative;
   z-index: 2;
   transition: all ease 0.4s;
+  height: 300px;
 }
 .service-style5 .service-btn {
   width: 50px;
