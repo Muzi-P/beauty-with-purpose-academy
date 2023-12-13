@@ -2228,8 +2228,14 @@ textarea.is-invalid {
 
 @media screen and (min-width: 451px) {
   .deal-offer {
-    content: url('/assets/img/bg/bg-cta-3-1.jpg');
-    height: 446px;
+    content: url('/assets/img/bg/bg-cta-3-1.avif');
+    height: 445px !important;
+  }
+}
+
+@media screen and (min-width: 451px) {
+  .faq-cover {
+    height: 700px !important;
   }
 }
 
@@ -4674,14 +4680,14 @@ a.text-theme:hover,
 }
 @media (min-width: 1922px) {
   .breadcumb-wrapper {
-    background-size: cover;
-    background-position: center center;
+    background-size: contain;
+    background-position: right;
   }
 }
 @media (max-width: 1850px) {
   .breadcumb-wrapper {
-    background-size: cover;
-    background-position: center center;
+    background-size: contain;
+    background-position: right;
   }
 }
 
