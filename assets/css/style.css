@@ -6796,11 +6796,21 @@ blockquote.vs-quote cite:before {
 .img-box10 {
   display: flex;
   margin-bottom: 30px;
+  justify-content: start;
 }
+
 .img-box10 .img-1 img,
 .img-box10 .img-2 img {
   border-radius: 6px;
 }
+
+@media (max-width: 767px) {
+  .img-box10 .img-1 img,
+  .img-box10 .img-2 img {
+    display: none;
+  }
+}
+
 .img-box10 .img-1 {
   margin-right: -100px;
   margin-top: 100px;
@@ -6859,9 +6869,14 @@ blockquote.vs-quote cite:before {
   transform: scale(1.15);
 }
 
-@media (min-width: 767px) {
+@media (min-width: 768px) {
   .collage-about {
-    width: 600px
+    display: none;
+  }
+}
+@media (max-width: 767px) {
+  .collage-about {
+    width: 100%
   }
 }
 
@@ -7423,6 +7438,9 @@ blockquote.vs-quote cite:before {
 }
 /* Medium devices */
 @media (max-width: 991px) {
+  .img-box10 {
+    justify-content: start;
+  }
   .img-box1 > img {
     width: 100%;
   }
