@@ -11727,6 +11727,12 @@ blockquote.vs-quote cite:before {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background: #bdaba1;
+  opacity: 0.9;
+}
+
+.partner-title {
+  font-weight: bolder;
 }
 
 /* Medium devices */
