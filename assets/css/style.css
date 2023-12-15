@@ -11715,6 +11715,20 @@ blockquote.vs-quote cite:before {
   padding-bottom: calc(var(--section-space) - 30px);
 }
 
+.donate-wrap {
+  display: flex;
+  justify-content: center;
+  height: 560px;
+}
+
+.donate {
+  border: 3px solid var(--theme-color);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 /* Medium devices */
 @media (max-width: 991px) {
   .space,
